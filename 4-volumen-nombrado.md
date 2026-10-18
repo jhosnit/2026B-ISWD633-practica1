@@ -8,7 +8,10 @@ docker volume create <nombre volumen>
 ```
 
 ### Crear el volumen nombrado: vol-postgres
-# COMPLETAR CON EL COMANDO
+
+```
+docker volume create vol-postgres
+```
 
 ## MOUNTPOINT
 Un mountpoint se refiere al lugar en el sistema de archivos donde un dispositivo de almacenamiento se une (o monta) al sistema de archivos. Es el punto donde los archivos y directorios almacenados en ese dispositivo de almacenamiento son accesibles para el sistema operativo y las aplicaciones.
@@ -39,7 +42,10 @@ docker run -d --name <nombre contenedor> --mount type=volume,src=<nombre >,dst=<
 
 
 ### Crear la red net-drupal de tipo bridge
-# COMPLETAR CON EL COMANDO
+
+```
+docker network create -d bridge net-drupal
+```
 
 ### Crear un servidor postgres vinculado a la red net-drupal, completar la ruta del contenedor
 ```
@@ -55,7 +61,12 @@ docker run -d --name client-postgres --publish published=9500,target=80 -e PGADM
 ### Usar el cliente postgres para conectarse al servidor postgres, para la conexión usar el nombre del servidor en lugar de la dirección IP.
 
 ### Crear los volúmenes necesarios para drupal, esto se puede encontrar en la documentación
-### COMPLETAR CON LOS COMANDOS
+```
+docker volume create vol-modules
+docker volume create vol-profiles
+docker volume create vol-themes
+docker volume create vol-sites
+```
 
 ### Crear el contenedor server-drupal vinculado a la red, usar la imagen drupal, y vincularlo a los volúmenes nombrados
 ```
@@ -63,11 +74,12 @@ docker run -d --name server-drupal --publish published=9700,target=80 -v <nombre
 ```
 
 ### Ingrese al server-drupal y siga el paso a paso para la instalación.
-# COMPLETAR CON UNA CAPTURA DE PANTALLA DEL PASO 4
+<img width="964" height="918" alt="image" src="https://github.com/user-attachments/assets/ab44b63b-3917-4682-98bf-214c06884ed6" />
 
 _La instalación puede tomar varios minutos, mientras espera realice un diagrama de los contenedores que ha creado en este apartado._
 
-# COMPLETAR CON EL DIAGRAMA SOLICITADO
+<img width="759" height="385" alt="image" src="https://github.com/user-attachments/assets/25d1f1da-ae0b-4acc-b51c-335885ef9698" />
+
 
 ### Eliminar un volumen específico
 ```
